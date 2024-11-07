@@ -1,0 +1,88 @@
+<app-navbar/>
+
+<div *ngIf="notificationMessage" [ngClass]="notificationClass">
+    {{ notificationMessage }}
+</div>
+<div class="container mt-5">
+    <form [formGroup]="postTaskForm" (ngSubmit)="updateTask()" novalidate>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Update Task</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Title Field -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" id="title" class="form-control" formControlName="title"
+                                [ngClass]="{'is-invalid': postTaskForm.get('title')?.invalid && (postTaskForm.get('title')?.dirty || postTaskForm.get('title')?.touched)}" />
+                            <div *ngIf="postTaskForm.get('title')?.invalid && (postTaskForm.get('title')?.dirty || postTaskForm.get('title')?.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="postTaskForm.get('title')?.errors?.['required']">Title is required.</div>
+                            </div>
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" class="form-control" formControlName="description"
+                                [ngClass]="{'is-invalid': postTaskForm.get('description')?.invalid && (postTaskForm.get('description')?.dirty || postTaskForm.get('description')?.touched)}"></textarea>
+                            <div *ngIf="postTaskForm.get('description')?.invalid && (postTaskForm.get('description')?.dirty || postTaskForm.get('description')?.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="postTaskForm.get('description')?.errors?.['required']">Description is required.</div>
+                                <div *ngIf="postTaskForm.get('description')?.errors?.['minlength']">Description must be at least 10 characters long.</div>
+                            </div>
+                        </div>
+
+                        <!-- Due Date Field -->
+                        <div class="mb-3">
+                            <label for="dueDate" class="form-label">Due Date</label>
+                            <input type="date" id="dueDate" class="form-control" formControlName="dueDate"
+                                [ngClass]="{'is-invalid': postTaskForm.get('dueDate')?.invalid && (postTaskForm.get('dueDate')?.dirty || postTaskForm.get('dueDate')?.touched)}" />
+                            <div *ngIf="postTaskForm.get('dueDate')?.invalid && (postTaskForm.get('dueDate')?.dirty || postTaskForm.get('dueDate')?.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="postTaskForm.get('dueDate')?.errors?.['required']">Due Date is required.</div>
+                            </div>
+                        </div>
+
+                        <!-- Employee Field -->
+                        <div class="mb-3">
+                            <label for="categoryId" class="form-label">Category</label>
+                            <select id="categoryId" class="form-control" formControlName="categoryId"
+                                [ngClass]="{'is-invalid': postTaskForm.get('categoryId')?.invalid && (postTaskForm.get('categoryId')?.dirty || postTaskForm.get('categoryId')?.touched)}">
+                                <option value="">Select Category</option>
+                                <option *ngFor="let category of listOfCategories" [value]="category.id">
+                                    {{ category.label }}
+                                </option>
+                            </select>
+                            <div *ngIf="postTaskForm.get('categoryId')?.invalid && (postTaskForm.get('categoryId')?.dirty || postTaskForm.get('categoryId')?.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="postTaskForm.get('categoryId')?.errors?.['required']">Category selection is required.</div>
+                            </div>
+                        </div>
+
+                        <!-- Task Status Field -->
+                        <div class="mb-3">
+                            <label for="taskStatus" class="form-label">Task Status</label>
+                            <select id="taskStatus" class="form-control" formControlName="taskStatus"
+                                [ngClass]="{'is-invalid': postTaskForm.get('taskStatus')?.invalid && (postTaskForm.get('taskStatus')?.dirty || postTaskForm.get('taskStatus')?.touched)}">
+                                <option value="">Select Task Status</option>
+                                <option *ngFor="let status of listOfTaskStatus" [value]="status">
+                                    {{ status }}
+                                </option>
+                            </select>
+                            <div *ngIf="postTaskForm.get('taskStatus')?.invalid && (postTaskForm.get('taskStatus')?.dirty || postTaskForm.get('taskStatus')?.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="postTaskForm.get('taskStatus')?.errors?.['required']">Task Status is required.</div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-warning" [disabled]="postTaskForm.invalid">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

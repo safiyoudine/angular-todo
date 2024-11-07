@@ -1,0 +1,50 @@
+/* Basic reset and box-sizing */
+*,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed; /* Makes the navbar fixed at the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e1e1e1;
+    z-index: 1000; /* Ensures the navbar stays above other content */
+}
+
+/* To ensure that the content does not go under the navbar */
+body {
+    padding-top: 60px; /* Adjust this value based on the height of your navbar */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-buttons {
+    display: flex;
+}
+
+.btn {
+    padding: 8px 16px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    color: #242222;
+}
+
+button.active {
+    font-weight: 600;
+}

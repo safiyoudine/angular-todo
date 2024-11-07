@@ -1,0 +1,262 @@
+/* Style for the search form */
+.search-form {
+  max-width: 600px;
+  margin: 0 auto; /* Center the search form */
+}
+
+.search-input {
+  border-radius: 0.375rem 0 0 0.375rem; /* Rounded corners for left side */
+  border-right: 0; /* Remove border on the right side to merge with button */
+}
+
+.input-group .btn {
+  border-radius: 0 0.375rem 0.375rem 0; /* Rounded corners for right side */
+  border-left: 0; /* Remove border on the left side to merge with input */
+  background-color: #007bff; /* Primary button color */
+  color: #fff; /* Button text color */
+}
+
+/* Optional: Hover effect for the search button */
+.input-group .btn:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+/* Status Buttons */
+.status-buttons .btn {
+  margin-right: 0.5rem; /* Space between buttons */
+  font-size: 0.875rem; /* Smaller font size for better fit */
+  border-radius: 0.375rem; /* Rounded corners for outline buttons */
+  border-width: 2px; /* Increase border width for better visibility */
+  border-style: solid; /* Ensure the border is solid */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; /* Smooth transition */
+}
+
+/* Default border colors */
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-outline-warning {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+/* Hover effects for status buttons */
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+  border-color: #6c757d;
+}
+
+.btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+  border-color: #17a2b8;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  color: #fff;
+  border-color: #ffc107;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+/* Active button styling */
+.btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Existing styles for task cards */
+.task-card-link {
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color from parent */
+}
+
+.task-card {
+  margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  height: 300px; /* Fixed height for uniformity */
+  max-width: 100%; /* Ensure cards fit within their container */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effect */
+}
+
+.task-card:hover {
+  transform: translateY(-5px); /* Lift the card slightly on hover */
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.task-card-header {
+  background-color: #f1f3f5;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.125rem; /* Slightly smaller title */
+  font-weight: 600;
+}
+
+.task-card-body {
+  padding: 0.75rem 1rem;
+  flex: 1;
+  overflow-y: auto; /* Ensure content fits within card */
+}
+
+.task-description {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem; /* Smaller font size */
+}
+
+.task-card-footer {
+  background-color: #f8f9fa;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e9ecef;
+}
+
+.task-card-footer .btn {
+  margin-right: 0.5rem;
+  font-size: 0.875rem; /* Smaller font size */
+}
+
+/* Badge styles for priority */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.priority-high {
+  background-color: #dc3545; /* Red */
+}
+
+.priority-medium {
+  background-color: #ffc107; /* Yellow */
+  color: black;
+}
+
+.priority-low {
+  background-color: #28a745; /* Green */
+}
+
+/* Status color styles */
+.status-assign {
+  color: #007bff; /* Blue */
+}
+
+.status-pending {
+  color: #ffc107; /* Yellow */
+}
+
+.status-in-progress {
+  color: #17a2b8; /* Light blue for professionalism */
+}
+
+.status-completed {
+  color: #28a745; /* Green */
+}
+
+.status-deferred {
+  color: #6c757d; /* Grey */
+}
+
+.status-cancelled {
+  color: #dc3545; /* Red */
+}
+
+/* Add margin to status text for better spacing */
+.task-card-body p {
+  margin-bottom: 1rem; /* Increase gap between paragraphs */
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  border-radius: 0.375rem; /* Rounded corners for pagination */
+  margin: 0 auto; /* Center pagination */
+}
+
+.page-item {
+  margin: 0 0.25rem; /* Add horizontal spacing between page items */
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  color: #007bff;
+  background-color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; /* Smooth transitions */
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #0056b3;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.page-item.active .page-link:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

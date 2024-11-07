@@ -1,0 +1,80 @@
+<app-navbar/>
+
+<div class="container mt-4">
+  <!-- Search Form -->
+  <form class="search-form mb-4">
+    <div class="input-group">
+      <input type="text" class="form-control search-input" placeholder="Enter keyword to search"
+        [(ngModel)]="searchKeyword" (ngModelChange)="filterTasks()" name="searchKeyword" />
+      <button class="btn btn-primary" type="button" (click)="filterTasks()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </form>
+
+  <!-- Status Buttons -->
+  <div class="d-flex mb-4 status-buttons">
+    <button class="btn btn-outline-info" (click)="filterByStatus('all')">All</button>
+    <button class="btn btn-outline-primary" (click)="filterByStatus('assign')">Todo</button>
+    <button class="btn btn-outline-secondary" (click)="filterByStatus('inprogress')">In Progress</button>
+    <button class="btn btn-outline-success" (click)="filterByStatus('completed')">Completed</button>
+  </div>
+
+  <!-- Task Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let task of filteredTaskList">
+      <div class="task-card">
+        <div class="task-card-header">
+          <h5 class="task-title">{{ task.title | titlecase }}</h5>
+          <span class="badge priority-high">{{ task.categoryLabel }}</span>
+        </div>
+        <div class="task-card-body">
+          <p class="task-description">{{ task.description }}</p>
+          <p><strong>Due Date:</strong> {{ task.dueDate | date:'shortDate' }}</p>
+          <p><strong>Created to:</strong> {{ task.name }}</p>
+          <p><strong>Status:</strong> <span class="status-{{task.taskStatus.toLowerCase()}}">{{ task.taskStatus }}</span></p>
+        </div>
+        <div class="task-card-footer">
+          <a class="btn btn-primary btn-sm" [routerLink]="'/admin/task/' + task.id + '/edit'">
+            <i class="fas fa-edit"></i> Edit
+          </a>
+          <button class="btn btn-danger btn-sm" (click)="openDeleteModal(deleteConfirmModal, task.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Controls -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [ngClass]="{'disabled': currentPage === 0}">
+        <a class="page-link" [routerLink]="'/admin/dashboard/'" (click)="onPageChange(currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" [ngClass]="{'active': currentPage === i}" *ngFor="let i of [].constructor(totalPages); let idx = index">
+        <a class="page-link" [routerLink]="'/admin/dashboard/'" (click)="onPageChange(idx)">{{ idx + 1 }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages - 1}">
+        <a class="page-link" [routerLink]="'/admin/dashboard/'" (click)="onPageChange(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<ng-template #deleteConfirmModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirm Deletion</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete this task?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+  </div>
+</ng-template>

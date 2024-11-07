@@ -1,0 +1,40 @@
+.invalid-feedback {
+    display: block;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: none;
+}
+
+.notification {
+    position: fixed; /* Changed to fixed for better viewport positioning */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px;
+    border-radius: 4px;
+    z-index: 1000;
+    max-width: 80%; /* Use max-width for responsiveness */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    color: white;
+    font-family: Arial, sans-serif; /* Ensure font consistency */
+    font-size: 14px; /* Consistent font size */
+}
+
+.notification.success {
+    background-color: #4caf50; /* Slightly muted green for success */
+}
+
+.notification.error {
+    background-color: #f44336; /* Slightly muted red for error */
+}

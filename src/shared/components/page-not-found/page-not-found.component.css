@@ -1,0 +1,42 @@
+/* Ensure the container takes full height and centers its content */
+.container {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Remove any default margin */
+    text-align: center;
+}
+
+/* Ensure no overflow on body and html */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Smooth font */
+}
+
+/* Customize button styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 50px; /* Rounded corners */
+    padding: 10px 20px; /* Adjust padding */
+    font-size: 1.125rem; /* Slightly larger font size */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow effect */
+}
+
+/* Add animation to the icon */
+.fas {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+}
