@@ -1,7 +1,5 @@
 # todoapp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
-
+ 
 ## Development server
 
 Run `npm install` 
